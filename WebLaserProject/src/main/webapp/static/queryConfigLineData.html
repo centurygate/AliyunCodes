@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0082)http://www.tlink.io/user/no/queryConfigLineData.htm?sensorId=106917&deviceId=12432 -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base>--><base href=".">
+    <title></title>
+    <meta name="Keywords" content="TLINK|物联网|智能物联|数字农业|仪器仪表物联网|物联网平台|物联网云服务|物联网开放平台|物联网技术|物联网应用|传感器云平台|环境物联网|能源物联网">
+    <meta name="Description" content="TLINK物联网是深圳市模拟科技有限公司面向物联网产品的开放平台">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	<link rel="stylesheet" type="text/css" href="css2/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css2/myIndex.css">
+
+	<script src="js2/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js2/highcharts.js"></script>
+	<script src="js/echarts.min.js"></script>
+
+	<script src="js/sockjs.min.js"></script>
+	<script src="js/stomp.min.js"></script>
+
+	<style type="text/css">
+    	 body,html{background-color:rgb(239,239,239);}
+    </style>
+
+	<script>
+		//var project_url = "http://139.196.59.146:8080/WebLaserProject";
+		var project_url = "http://"+ location.host +"/WebLaserProject";
+	</script>
+
+  </head>
+  
+  <body>
+  	<input type="hidden" id="wsurl1" value="ws://121.43.107.76:8086/tlink_websocket/chat/101965_106917">
+  	<input type="hidden" id="wsurl2" value="ws://121.43.107.76:8087/tlink_websocket/chat/101965_106917">
+  	<input type="hidden" id="wsurl3" value="ws://121.43.107.76:8076/tlink_websocket/chat/101965_106917">
+	<input type="hidden" id="wsurl4" value="ws://121.43.107.76:8077/tlink_websocket/chat/101965_106917">
+	<input type="hidden" id="wsurl5" value="ws://121.43.107.76:8078/tlink_websocket/chat/101965_106917">
+    <input type="hidden" id="sensorId" value="106917">
+    <input type="hidden" id="deviceId" value="12432">
+    <div id="container" style="width: 100%;height: 100%;background-color:rgb(239,239,239);">
+
+		<div id='echartdemo' style='width: 100%;height:100%; margin: 0; padding: 0;'></div>
+
+		<!--<div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 272px; height: 182px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+			<svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="272" height="182">
+				<desc>Created with Highcharts 4.1.5</desc>
+				<defs>
+					<clippath id="highcharts-1">
+						<rect x="0" y="0" width="252" height="131"></rect>
+					</clippath>
+				</defs>
+				<rect x="0" y="0" width="272" height="182" strokeWidth="0" fill="rgb(239,239,239)" class=" highcharts-background"></rect>
+				<g class="highcharts-grid" zIndex="1"></g>
+				<g class="highcharts-grid" zIndex="1"></g>
+				<g class="highcharts-axis" zIndex="2">
+					<path fill="none" d="M 104.5 141 L 104.5 151" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
+					<path fill="none" d="M 228.5 141 L 228.5 151" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
+					<path fill="none" d="M 10 141.5 L 262 141.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path>
+				</g>
+				<g class="highcharts-axis" zIndex="2"></g>
+				<g class="highcharts-series-group" zIndex="3">
+					<g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"
+					   clip-path="url(http://www.tlink.io/user/no/queryConfigLineData.htm?sensorId=106917&amp;deviceId=12432#highcharts-1)">
+						<path fill="none" d="M 0 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2"
+							  class=" highcharts-tracker" style="">
+						</path>
+					</g>
+					<g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"
+					   clip-path="url(http://www.tlink.io/user/no/queryConfigLineData.htm?sensorId=106917&amp;deviceId=12432#highcharts-2)" style="">
+					</g>
+				</g>
+				<g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7">
+					<text x="104.99411764705881" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:116px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="160" opacity="1">10:50:20</text>
+					<text x="228.52352941176468" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:116px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="160" opacity="1">10:50:25</text>
+				</g>
+				<g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"></g>
+				<g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)">
+					<path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"
+						  isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path>
+					<path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"
+						  isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path>
+					<path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"
+						  isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path>
+					<path fill="rgba(249, 249, 249, .85)" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"></path>
+					<text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" transform="translate(0,20)"></text>
+				</g>
+			</svg>
+		</div>-->
+	</div>
+  
+  <script type="text/javascript">  
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+    if(month<10){
+    	month="0"+month;
+    }
+    if(day<10){
+    	day="0"+day;
+    }
+	var nowDate = year+"-"+month+"-"+day;
+	var myChart;
+	var series;
+    var sid;
+    var deviceId;
+    var sname;
+
+	$(document).ready(function() { 
+/*		sid = $("#sensorId").val();
+		deviceId = $("#deviceId").val();
+    	sname = "数值";*/
+/*    	Highcharts.setOptions({
+        	global: {  
+            	useUTC: false  
+        	}  
+    	});*/
+
+
+		////////////////////////////////////////////////////////////////
+		//初始化图表控件
+		var findid = document.getElementById('echartdemo');
+
+		myChart = echarts.init(findid);
+
+		//初始空白没有数据的option
+		var option = {
+/*			title: {
+				text: '动态数据'
+			},*/
+			tooltip: {
+				trigger: 'axis'
+			},
+/*			legend: {
+				data:['最新成交价']
+			},*/
+			/*        toolbox: {
+			 show: true,
+			 feature: {
+			 dataView: {readOnly: false},
+			 restore: {},
+			 saveAsImage: {}
+			 }
+			 },*/
+			grid:{
+				top: 20,
+				bottom: 20
+			},
+			dataZoom: {
+				show: false,
+				start: 0,
+				end: 100
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+				data: (function (){
+					var now = new Date();
+					var res = [];
+					var len = 20;
+					while (len--) {
+						res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+						now = new Date(now - 2000);
+					}
+					return res;
+				})()
+			},
+			yAxis: {
+				type: 'value',
+				scale: true,
+//				name: '价格',
+				max: 30,
+				min: 0,
+				boundaryGap: [0.2, 0.2]
+			},
+			series: [
+				{
+					name:'测量值',
+					type:'line',
+					data:(function (){
+						var res = [];
+						var len = 0;
+						while (len < 20) {
+							res.push(0.0);
+							len++;
+						}
+						return res;
+					})()
+				}
+			]
+		};
+
+
+/*		window.setInterval(function (){
+
+			option.series[0].data.shift();
+			option.series[0].data.push((Math.random() * 10 + 5).toFixed(1) - 0);
+
+			var axisData = (new Date()).toLocaleTimeString().replace(/^\D*!/,'');
+			option.xAxis.data.shift();
+			option.xAxis.data.push(axisData);
+
+			myChart.setOption(option);
+		}, 2000);*/
+
+
+		//websocket========================================================================================
+		var stompClient = null;
+		var sockurl = project_url + '/add';
+		connect();
+
+		function connect() {
+			var socket = new SockJS(sockurl);
+			if((socket == undefined) || (socket == null))
+			{
+				console.log("(socket == undefined) || (socket == null)");
+			}
+			stompClient = Stomp.over(socket);
+			stompClient.connect({}, function(frame) {
+
+				console.log('Connected: ' + frame);
+				/*        stompClient.subscribe('/topic/info', function(calResult){
+				 console.log(calResult);
+				 });*/
+
+				stompClient.subscribe('/topic/showResult', function(calResult){
+					console.log(calResult);
+					var measureInfo = JSON.parse(calResult.body);
+
+					//修改dom输出到input显示框中
+					//document.getElementById('val_106917').innerText = measureInfo.value;
+
+					//动态添加数据点
+					option.series[0].data.shift();
+					option.series[0].data.push(measureInfo.value);
+
+					var axisData = (new Date()).toLocaleTimeString().replace(/^\D*!/,'');
+					option.xAxis.data.shift();
+					option.xAxis.data.push(axisData);
+
+					myChart.setOption(option);
+				});
+
+				/*			stompClient.subscribe('/topic/alarm', function(calResult)
+				 {
+				 //取数据库中警报数据显示在徽章中，并且新添加的数据加1
+				 alarmcnt += 1;
+				 document.getElementById("alarmid").innerHTML = alarmcnt;
+				 });*/
+			});
+		}
+
+});  
+	
+
+</script>  
+
+</body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)http://www.tlink.io/user/no/queryConfigValue.htm?sensorId=106917&deviceId=12432&show_time=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base>--><base href=".">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Keywords" content="TLINK|物联网|智能物联|数字农业|仪器仪表物联网|物联网平台|物联网云服务|物联网开放平台|物联网技术|物联网应用|传感器云平台|环境物联网|能源物联网">
+    <meta name="Description" content="TLINK物联网是深圳市模拟科技有限公司面向物联网产品的开放平台">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+
+	<script src="js2/jquery-1.11.2.min.js"></script>
+	<script src="js/sockjs.min.js"></script>
+	<script src="js/stomp.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css2/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css2/myIndex.css">
+	<link href="css2/stylesheet.css" rel="stylesheet">
+    <link href="css2/demo.css" rel="stylesheet">
+
+
+<!--	<style type="text/css">
+		/*IE浏览器*/
+		@font-face {
+			font-family: LcdD;
+		url('fonts2/LcdD.eot?#iefix') format('embedded-opentype'),
+		src: url(fonts2/LcdD.eot) format("truetype");
+		}
+		/*非IE浏览器*/
+		@font-face {
+			font-family: LcdD;
+			src: url(fonts2/LcdD.TTF) format("truetype");
+		}
+		.showtime {
+			font-family: LcdD;
+			font-size: 30px;
+			color:Green;
+		}
+	</style>-->
+
+	<style type="text/css">
+		body,html{overflow:hidden;background-color:rgb(239,239,239);}
+		.infos_close_{line-height:100px;margin-top:80px;}
+		.infos_open_{line-height:100px;margin-top:80px;}
+		span{font-size:35px;font-family: LcdD;}
+	</style>
+
+	 <script>
+		//var project_url = "http://139.196.59.146:8080/WebLaserProject";
+		var project_url = "http://"+ location.host +"/WebLaserProject";
+	</script>
+
+  </head>
+  <body>
+     <input type="hidden" id="wsurl1" value="ws://121.43.107.76:8086/tlink_websocket/chat/101965_106917">
+     <input type="hidden" id="wsurl2" value="ws://121.43.107.76:8087/tlink_websocket/chat/101965_106917">
+     <input type="hidden" id="wsurl3" value="ws://121.43.107.76:8076/tlink_websocket/chat/101965_106917">
+	 <input type="hidden" id="wsurl4" value="ws://121.43.107.76:8077/tlink_websocket/chat/101965_106917">
+	 <input type="hidden" id="wsurl5" value="ws://121.43.107.76:8078/tlink_websocket/chat/101965_106917">		          
+     <input type="hidden" id="deviceId" value="12432">
+     <input type="hidden" id="sensorId" value="106917">
+     
+	  <div class="shujuValue">
+	      <div class="shujuVK">
+	          <div class="sjV"><span id="val_106917">0.0</span>mm</div>
+	          
+	              <div class="time" id="time">2016-1-1 00:00:00.0&nbsp;</div>
+
+	      </div>
+	  </div>
+      
+  
+<script>
+
+	$(function () {
+
+		//websocket========================================================================================
+		var stompClient = null;
+
+		var sockurl = project_url + '/add';
+		connect();
+
+		function connect() {
+			var socket = new SockJS(sockurl);
+			if((socket == undefined) || (socket == null))
+			{
+				console.log("(socket == undefined) || (socket == null)");
+			}
+			stompClient = Stomp.over(socket);
+			stompClient.connect({}, function(frame) {
+
+				console.log('Connected: ' + frame);
+
+				stompClient.subscribe('/topic/showResult', function(calResult){
+					console.log(calResult);
+					//alert("hi~");
+					var measureInfo = JSON.parse(calResult.body);
+
+					//修改dom输出到input显示框中
+					document.getElementById('val_106917').innerText = measureInfo.value;
+
+					var date = new Date();
+					var seperator1 = "-";
+					var seperator2 = ":";
+					var month = date.getMonth() + 1;
+					var strDate = date.getDate();
+					if (month >= 1 && month <= 9) {
+						month = "0" + month;
+					}
+					if (strDate >= 0 && strDate <= 9) {
+						strDate = "0" + strDate;
+					}
+					var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+							+ " " + date.getHours() + seperator2 + date.getMinutes()
+							+ seperator2 + date.getSeconds();
+					document.getElementById('time').innerHTML = currentdate;
+				});
+
+			});
+		}
+
+		function disconnect() {
+			stompClient.disconnect();
+			console.log("Disconnected");
+		}
+
+	});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="WebLaserProject">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="WebLaserProject.war" />
+  </artifact>
+</component>
